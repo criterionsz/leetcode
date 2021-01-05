@@ -108,4 +108,124 @@ object Solution {
     fun smallerNumbersThanCurrent(nums: IntArray): IntArray =
         nums.map { num -> nums.count { num > it } }.toIntArray()
 
+    /*
+        709. Implement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase.
+   */
+    fun toLowerCase(str: String): String =
+        str.toLowerCase()
+
+    /*
+       1389. Create Target Array in the Given Order
+  */
+    fun createTargetArray(nums: IntArray, index: IntArray): IntArray {
+        val target = mutableListOf<Int>()
+        for (i in nums.indices) {
+            target.add(index[i], nums[i])
+        }
+        return target.toIntArray()
+    }
+
+    /*
+      1684. Count the Number of Consistent Strings
+    */
+    fun countConsistentStrings(allowed: String, words: Array<String>): Int =
+        words.count { word ->
+            word.all {
+                allowed.contains(it)
+            }
+        }
+
+    /*
+      1486. XOR Operation in an Array
+ */
+    fun xorOperation(n: Int, start: Int): Int {
+        var res = start
+        for (i in 1 until n) {
+            res = res.xor(start + 2 * i)
+        }
+        return res
+    }
+
+    /*
+     1512. Number of Good Pairs
+    */
+    fun numIdenticalPairs(nums: IntArray): Int {
+        var countPairs = 0
+        for (i in nums.indices) {
+            for (j in (i + 1) until nums.size) {
+                if (nums[i] == nums[j])
+                    countPairs++
+            }
+        }
+        return countPairs
+    }
+
+    /*
+   1512. Number of Good Pairs
+  */
+    fun balancedStringSplit(s: String): Int {
+        var l = 0
+        var r = 0
+        var res = 0
+        for (i in s) {
+            if (i == 'R')
+                r++
+            else
+                l++
+            if (l == r) {
+                res++
+                l = 0
+                r = 0
+            }
+        }
+        return res
+    }
+
+    /*
+        1662. Check If Two String Arrays are Equivalent
+  */
+    fun arrayStringsAreEqual(word1: Array<String>, word2: Array<String>): Boolean =
+        word1.joinToString(separator = "").equals(word2.joinToString(separator = ""))
+
+    /*
+      1295. Find Numbers with Even Number of Digits
+    */
+    fun findNumbers(nums: IntArray): Int =
+        nums.count { it.toString().length % 2 == 0 }
+
+    /*
+      1534. Count Good Triplets
+    */
+    fun countGoodTriplets(arr: IntArray, a: Int, b: Int, c: Int): Int {
+        var count = 0
+        for (i in arr.indices)
+            for (j in (i + 1) until arr.size)
+                for (k in (j + 1) until arr.size) {
+                    if (Math.abs(arr[i] - arr[j]) <= a && Math.abs(arr[j] - arr[k]) <= b && Math.abs(arr[i] - arr[k]) <= c)
+                        count++
+                }
+        return count
+    }
+
+    /*
+         1588. Sum of All Odd Length Subarrays
+    */
+    fun sumOddLengthSubarrays(arr: IntArray): Int {
+        var sum = arr.sum()
+        var sub = 3
+        for (i in arr.indices) {
+            for (j in 0..(arr.size - sub)) {
+                var temp = sub
+                while (temp > 0) {
+                    sum += arr[j + temp - 1]
+                    temp--
+                }
+            }
+            sub += 2
+
+        }
+        return sum
+    }
+
+
 }

@@ -16,4 +16,8 @@ fun main() {
     println(Solution.restoreString("codeleet", intArrayOf(4, 5, 6, 7, 0, 2, 1, 3)))
     println(Solution.subtractProductAndSum(234))
     println(Solution.smallerNumbersThanCurrent(intArrayOf(8, 1, 2, 2, 3)).joinToString())
+    println(Solution.countConsistentStrings("cad", arrayOf("cc", "acd", "b", "ba", "bac", "bad", "ac", "d")))
+    println(Solution.xorOperation(1, 7))
+    println(Solution.numIdenticalPairs(intArrayOf(1, 2, 3)))
+    println(Solution.sumOddLengthSubarrays(intArrayOf(1, 4, 2, 5, 3)))
 }
