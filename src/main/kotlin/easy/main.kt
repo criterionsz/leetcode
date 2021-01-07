@@ -1,9 +1,7 @@
 package easy
 
 fun main() {
-    val t = 'a'.toInt() + 1
-    println(t)
-    println(Solution.minTimeToVisitAllPoints(arrayOf(intArrayOf(1, 1), intArrayOf(3, 4), intArrayOf(-1, 0))))
+    println(Solution.maximumWealth(arrayOf(intArrayOf(1, 3, 4, 5), intArrayOf(3, 4, 5, 10))))
     println(Solution.shuffle(intArrayOf(2, 5, 1, 3, 4, 7), 3))
     println(Solution.defangIPaddr("1.1.1.1"))
     val parkingSystem = ParkingSystem(1, 1, 0)
