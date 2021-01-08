@@ -28,4 +28,30 @@ fun main() {
         )
     )
     print(Solution.removeOuterParentheses("(()())(())"))
+    print(Solution.selfDividingNumbers(1, 22))
+    println(Solution.busyStudent(intArrayOf(1, 2, 3), intArrayOf(3, 2, 7), 4))
+    println(
+        Solution.diagonalSum(
+            arrayOf(
+                intArrayOf(7, 3, 1, 9),
+                intArrayOf(3, 4, 6, 9),
+                intArrayOf(6, 9, 6, 6),
+                intArrayOf(9, 5, 8, 5)
+            )
+        )
+    )
+    println(Solution.repeatedNTimes(intArrayOf(1, 2, 3, 3)))
+//    println(
+//        Solution.destCity(
+//            arrayListOf(
+//                arrayListOf("qMTSlfgZlC", "ePvzZaqLXj"),
+//                arrayListOf("xKhZXfuBeC", "TtnllZpKKg"),
+//                arrayListOf("ePvzZaqLXj", "sxrvXFcqgG"),
+//                arrayListOf("sxrvXFcqgG", "xKhZXfuBeC"),
+//                arrayListOf("TtnllZpKKg", "OAxMijOZgW"),
+//            )
+//        )
+//    )
+
+
 }

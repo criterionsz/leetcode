@@ -1,6 +1,5 @@
 package easy
 
-import java.lang.StringBuilder
 
 object Solution {
     /*
@@ -378,5 +377,110 @@ object Solution {
         return res.toString()
     }
 
+    fun generateTheString(n: Int): String {
+        if (n % 2 == 1) {
+            return "q".repeat(n)
+        } else {
+            return "q".repeat(n - 1) + "z"
+        }
+    }
 
+    fun maxProduct(nums: IntArray): Int {
+        var a = 0
+        var b = 0
+        for (i in nums) {
+            if (a < i) {
+                if (b < a) {
+                    b = a
+                }
+                a = i
+
+            } else if (b < i) {
+                b = i
+            }
+        }
+        return (a - 1) * (b - 1)
+    }
+
+    //728
+    fun selfDividingNumbers(left: Int, right: Int): List<Int> {
+        fun div(num: Int): Boolean {
+            var n = num
+            while (n > 0) {
+                if (n % 10 == 0) return false
+                if (num % (n % 10) != 0) {
+                    return false
+                }
+                n /= 10
+            }
+            return true
+        }
+
+        val res = arrayListOf<Int>()
+        for (i in left..right) {
+            if (div(i))
+                res.add(i)
+        }
+        return res
+    }
+
+    //1351
+    fun countNegatives(grid: Array<IntArray>): Int =
+        grid.sumBy { arrays -> arrays.count { it < 0 } }
+
+    //1450
+    fun busyStudent(startTime: IntArray, endTime: IntArray, queryTime: Int): Int {
+        var count = 0
+        for (i in startTime.indices) {
+            if (startTime[i] <= queryTime && endTime[i] >= queryTime)
+                count++
+
+        }
+        return count
+
+    }
+
+    //1572
+    fun diagonalSum(mat: Array<IntArray>): Int {
+        var r = mat.size - 1
+        var sum = 0
+        for (i in mat.indices) {
+            if (i >= r) {
+                if (i == r)
+                    sum += mat[i][r]
+                break
+            }
+            sum += mat[i][i] + mat[i][r] + mat[r][i] + mat[r][r]
+            r -= 1
+        }
+        return sum
+
+    }
+
+    //1323
+    fun maximum69Number(num: Int): Int =
+        num.toString().replaceFirst('6', '9').toInt()
+
+    //1704
+    val vowels = charArrayOf('a', 'e', 'e', 'i', 'o', 'u')
+    fun halvesAreAlike(s: String): Boolean =
+        s.toLowerCase().substring(0, s.length / 2).count { it in vowels } ==
+                s.toLowerCase().substring(s.length / 2, s.length).count { it in vowels }
+
+    fun repeatedNTimes(A: IntArray): Int =
+        A.groupBy { it }.filter { it.value.size == A.size / 2 }.keys.toIntArray()[0]
+
+    fun largestSumAfterKNegations(A: IntArray, K: Int): Int {
+        for (i in 1..K) {
+            var t = 0
+            for (j in A.indices) {
+                if (A[j] < A[t]) {
+                    t = j
+                }
+            }
+            A[t] *= -1
+        }
+        return A.sum()
+
+    }
 }
